@@ -1,4 +1,4 @@
-package AppLauncher.WordCounter;
+package WordCounter;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
@@ -6,14 +6,11 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Dimension;
-public class Frame extends JFrame{
-    public static void main(String[] args) {
-        new Frame();
-    }
+public class WordCounterFrame extends JFrame{
     JTextArea field = new JTextArea();
     JButton button = new JButton();
     JLabel dataLabel = new JLabel();
-    public Frame(){
+    public WordCounterFrame(){
         setTitle("Word Counter");
         setVisible(true);
         setSize(new Dimension(750, 780));

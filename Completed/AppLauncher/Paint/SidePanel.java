@@ -1,4 +1,4 @@
-package AppLauncher.Paint;
+package Paint;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
@@ -33,7 +33,7 @@ public class SidePanel extends JPanel{
         clear.setText("Clear");
         clear.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                Frame.clearAll();
+                PaintFrame.clearAll();
             }
         });
         add(clear);
@@ -47,7 +47,7 @@ public class SidePanel extends JPanel{
             if(colors.keySet().toArray()[i].equals("White") || colors.keySet().toArray()[i].equals("Eraser") || colors.keySet().toArray()[i].equals("ColorSwitcher")) buttons[i].setForeground(Color.black);
             buttons[i].addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    Frame.setColor(colors.get(((JButton)e.getSource()).getText()), ((JButton)e.getSource()).getText());    
+                    PaintFrame.setColor(colors.get(((JButton)e.getSource()).getText()), ((JButton)e.getSource()).getText());    
                 }
             });
             add(buttons[i]);
@@ -55,7 +55,7 @@ public class SidePanel extends JPanel{
         fill.setText("Fill");
         fill.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                Frame.fillBack();
+                PaintFrame.fillBack();
             }
         });
         add(fill);
@@ -64,7 +64,7 @@ public class SidePanel extends JPanel{
         brush.setPaintLabels(true);
         brush.addChangeListener(new ChangeListener(){
             public void stateChanged(ChangeEvent e){
-                Frame.setBrushSize(brush.getValue());
+                PaintFrame.setBrushSize(brush.getValue());
             }
         });
         add(brush);

@@ -1,8 +1,8 @@
-package AppLauncher.Snake;
+package Snake;
 import javax.swing.JFrame;
 
-public class Frame extends JFrame{
-	public Frame(){
+public class SnakeFrame extends JFrame{
+	public SnakeFrame(){
 		this.add(new GamePanel());
 		this.setTitle("Snake");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

@@ -1,17 +1,17 @@
-package AppLauncher.ColorSwitcher;
+package Paint;
 import javax.swing.JFrame;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BoxLayout;
-public class Frame extends JFrame{
-    public static void main(String[] args) {
-        new Frame();
-    }
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class ColorSwitcher extends JFrame{
     final int WIDTH = 500;
     final int HEIGHT = 500;
     JPanel colorViewer = new JPanel();
@@ -24,7 +24,8 @@ public class Frame extends JFrame{
     int R = 255;
     int G = 255;
     int B = 255;
-    public Frame(){
+    JButton submit = new JButton();
+    ColorSwitcher(){
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         setSize(WIDTH, HEIGHT);
         setTitle("Color Switcher");
@@ -75,7 +76,13 @@ public class Frame extends JFrame{
             }
         });
         add(b);
+        submit.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                PaintFrame.setColor(new int[]{R, G, B}, "");
+            }
+        });
+        submit.setText("Submit");
+        add(submit);
         setVisible(true);
     }
 }
-

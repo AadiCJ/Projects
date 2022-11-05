@@ -1,4 +1,4 @@
-package AppLauncher.TTC;
+package TTC;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;

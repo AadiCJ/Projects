@@ -1,7 +1,8 @@
 # App Launcher
 
 5/11/2022\
-An application in java that opens other useful applications, such as a calculator, color switcher, paint, tic tac toe, snake and a word counter.
+An application in java that opens other useful applications, such as a calculator, color switcher, paint, tic tac toe, snake and a word counter.\
+The main method resides within the Main.java file.
 
 ## Installation
 

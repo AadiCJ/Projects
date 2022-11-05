@@ -1,4 +1,4 @@
-package AppLauncher.Snake;
+package Snake;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

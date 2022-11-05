@@ -1,12 +1,9 @@
-package AppLauncher.Paint;
+package Paint;
 import javax.swing.JFrame;
-public class Frame extends JFrame{
+public class PaintFrame extends JFrame{
 	SidePanel sp = new SidePanel();
 	static Panel p = new Panel();
-	public static void main(String[] args){
-		new Frame();
-	}
-	public Frame(){
+	public PaintFrame(){
 		setTitle("Paint");
 		setLayout(null);
 		setSize(750+sp.getWidth(), 750);

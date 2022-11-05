@@ -1,17 +1,11 @@
-package AppLauncher;
 import javax.swing.JFrame;
 import java.awt.GridLayout;
 import java.util.LinkedHashMap;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-
-
 public class Launcher extends JFrame{
     LinkedHashMap<JButton, String> apps = new LinkedHashMap<JButton, String>();
-    public static void main(String[] args) {
-        new Launcher();
-    }
     Launcher(){
         setTitle("App Launcher");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -42,22 +36,22 @@ public class Launcher extends JFrame{
     public void openApp(String in){
         switch(in){
             case "Tic Tac Toe":
-                new AppLauncher.TTC.TicTacToe();
+                new TTC.TicTacToe();
                 break;
             case "Snake":
-                new AppLauncher.Snake.Frame();
+                new Snake.SnakeFrame();
                 break;
             case "Calculator":
-                new AppLauncher.Calculator.SwingShell();
+                new Calculator.SwingShell();
                 break;
             case "Word Counter":
-                new AppLauncher.WordCounter.Frame();
+                new WordCounter.WordCounterFrame();
                 break;
             case "Colour Switcher":
-                new AppLauncher.ColorSwitcher.Frame();
+                new ColorSwitcher.ColorSwitcherFrame();
                 break;
             case "Paint":
-                new AppLauncher.Paint.Frame();
+                new Paint.PaintFrame();
                 break;
         }
     }
