@@ -5,7 +5,6 @@ import java.util.LinkedHashMap;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import AppLauncher.*;
 
 
 public class Launcher extends JFrame{
@@ -42,22 +41,22 @@ public class Launcher extends JFrame{
     public void openApp(String in){
         switch(in){
             case "Tic Tac Toe":
-                new TTC.Frame();
+                new AppLauncher.TTC.Frame();
                 break;
             case "Snake":
-                new Snake.Frame();
+                new AppLauncher.Snake.Frame();
                 break;
             case "Calculator":
-                new Calculator.Frame();
+                new AppLauncher.Calculator.Frame();
                 break;
             case "Word Counter":
-                new WordCounter.Frame();
+                new AppLauncher.WordCounter.Frame();
                 break;
             case "Colour Switcher":
-                new ColorSwitcher.Frame();
+                new AppLauncher.ColorSwitcher.Frame();
                 break;
             case "Paint":
-                new Paint.Frame();
+                new AppLauncher.Paint.Frame();
                 break;
         }
     }
