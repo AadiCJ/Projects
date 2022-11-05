@@ -13,6 +13,7 @@ public class Launcher extends JFrame{
         new Launcher();
     }
     Launcher(){
+        setTitle("App Launcher");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new GridLayout(2, 3));
         apps.put(new JButton(), "Tic Tac Toe");
@@ -47,7 +48,7 @@ public class Launcher extends JFrame{
                 new AppLauncher.Snake.Frame();
                 break;
             case "Calculator":
-                new AppLauncher.Calculator.Frame();
+                new AppLauncher.Calculator.SwingShell();
                 break;
             case "Word Counter":
                 new AppLauncher.WordCounter.Frame();

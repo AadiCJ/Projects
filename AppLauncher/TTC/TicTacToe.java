@@ -30,7 +30,6 @@ public class TicTacToe implements ActionListener {
 	JButton reset = new JButton();
 	Random random = new Random();
 	public TicTacToe(){
-
 		int turn = random.nextInt(2);
 		xTurn = turn == 1;
 		if(xTurn) textField.setText("X's Turn");
@@ -73,6 +72,7 @@ public class TicTacToe implements ActionListener {
 
 		frame.add(reset);
 		frame.add(buttonPanel);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 	public boolean win = false;

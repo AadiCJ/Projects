@@ -14,6 +14,7 @@ public class Frame extends JFrame{
     JButton button = new JButton();
     JLabel dataLabel = new JLabel();
     public Frame(){
+        setTitle("Word Counter");
         setVisible(true);
         setSize(new Dimension(750, 780));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
