@@ -41,7 +41,7 @@ public class Launcher extends JFrame{
     public void openApp(String in){
         switch(in){
             case "Tic Tac Toe":
-                new AppLauncher.TTC.Frame();
+                new AppLauncher.TTC.TicTacToe();
                 break;
             case "Snake":
                 new AppLauncher.Snake.Frame();
