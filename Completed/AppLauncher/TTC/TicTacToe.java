@@ -9,8 +9,13 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
-
+/**
+ * Contains all functional code.
+ */
 public class TicTacToe implements ActionListener {
+	/**
+	 * List of all win conditions. If any are met, the win boolean is switched to true.
+	 */
 	int[][] winConditions = new int[][]{
 		{0, 1, 2},
 		{3, 4, 5},
@@ -21,19 +26,29 @@ public class TicTacToe implements ActionListener {
 		{0, 4, 8},
 		{2, 4, 6}
 	};
-	JFrame frame = new JFrame();
-	JButton[] buttons = new JButton[9];
-	JPanel text = new JPanel();
-	JPanel buttonPanel = new JPanel();
-	JLabel textField = new JLabel();
-	boolean xTurn;
-	JButton reset = new JButton();
-	Random random = new Random();
+	public boolean win = false;//turns to true if a win condition is met
+	/**
+	 * All parts of the swing application.
+	 */
+	JFrame frame = new JFrame();//main frame.
+	JButton[] buttons = new JButton[9];//an array of all buttons.
+	JPanel text = new JPanel();//JPanel which displays win/loss/whose turn.
+	JPanel buttonPanel = new JPanel();//JPanel which contains all buttons.
+	JLabel textField = new JLabel();//a JLabel, part of the text JPanel.
+	boolean xTurn;//if it's player x's turn, it is set to true.
+	JButton reset = new JButton();//resets the game.
+	Random random = new Random();//used to decide the player that starts (O/X).
+	/**
+	 * Sets up the swing application
+	 * Decides the person that starts
+	 */
 	public TicTacToe(){
+
 		int turn = random.nextInt(2);
 		xTurn = turn == 1;
 		if(xTurn) textField.setText("X's Turn");
 		else textField.setText("O's Turn");
+
 		frame.setSize(800, 1000);
 		frame.setTitle("Tic Tac Toe");
 		frame.setLayout(null);
@@ -72,62 +87,63 @@ public class TicTacToe implements ActionListener {
 
 		frame.add(reset);
 		frame.add(buttonPanel);
-		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
-	public boolean win = false;
+
+	/**
+	 * Has code related to buttons and winning.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e!=null) {
-
-			for (int i = 0; i < 9; i++) {
-				if (e.getSource() == buttons[i]) {
-					if (xTurn) {
-						textField.setText("O's Turn");
-						buttons[i].setText("X");
-						buttons[i].setEnabled(false);
-						xTurn = false;
-						for (int[] arr : winConditions) check(arr);
-
-					} else {
-						textField.setText("X's Turn");
-						buttons[i].setText("O");
-						buttons[i].setEnabled(false);
-						xTurn = true;
-						for (int[] arr : winConditions) check(arr);
-					}
+		if(e==null) return;//if e is null, exit this.
+		for (int i = 0; i < 9; i++) {//checking which button is pressed
+			if (e.getSource() == buttons[i]) {
+				if (xTurn) {//if x's turn, 
+					xTurn = false;
+					textField.setText("O's Turn");//turn changes to O
+					buttons[i].setText("X");//text in button is set to X
+					buttons[i].setEnabled(false);//button cannot be pressed again
+					for (int[] arr : winConditions) check(arr);//loops through winconditions and checks if any are achieved.
+				} else {//similar to X.
+					xTurn = true;
+					textField.setText("X's Turn");
+					buttons[i].setText("O");
+					buttons[i].setEnabled(false);
+					for (int[] arr : winConditions) check(arr);
 				}
-				if(e.getSource() == reset){
-					for(JButton but : buttons){
-						but.setText("");
-						but.setBackground(Color.black);
-						but.setEnabled(true);
-					}
-					textField.setText("");
-					int turn = random.nextInt(2);
-					xTurn = turn == 1;
-					if(xTurn) textField.setText("X's Turn");
-					else textField.setText("O's Turn");
+			}
+			if(e.getSource() == reset){//if reset button is pressed,
+				for(JButton but : buttons){//reset all buttons
+					but.setText("");
+					but.setBackground(Color.black);
+					but.setEnabled(true);
 				}
+				int turn = random.nextInt(2);
+				xTurn = turn == 1;
+				if(xTurn) textField.setText("X's Turn");
+				else textField.setText("O's Turn");//setting the new Player.
 			}
 		}
 	}
+	/**
+	 * @param in a win condition from the win conditions array.
+	 * checks if the inputed win condition has been achieved.
+	 */
 	public void check(int[] in){
 		int pos1 = in[0];
 		int pos2 = in[1];
-		int pos3 = in[2];
+		int pos3 = in[2];//store the values of the array into individual integers.
 		String out;
 		if(buttons[pos1].getText().equalsIgnoreCase(buttons[pos2].getText()) && buttons[pos2].getText().equalsIgnoreCase(buttons[pos3].getText()) && !buttons[pos2].getText().equals("")){
-			out = buttons[pos1].getText();
-			textField.setText(out + " is the winner.");
-			win = true;
-			for(int i : in){
-				buttons[i].setBackground(new Color(51, 204, 51));
-			}
-			for(JButton but : buttons ) but.setEnabled(false);
+			//above line checks if the text in all three buttons is the same, if it is win is set to true.
+			out = buttons[pos1].getText();//gets text in the button, i.e. the winner.
+			textField.setText(out + " is the winner.");//the text in JLabel is set.
+			win = true;//win is set to true.
+			for(int i : in) buttons[i].setBackground(new Color(51, 204, 51));//loop through certain buttons, changing their colour to win.
+			for(JButton but : buttons ) but.setEnabled(false);//disables all buttons.
 		}
-		boolean draw = true;
-		for(JButton but : buttons) if(but.getText().equals("")) draw = false;
-		if(draw && !win) textField.setText("Tie");
+		boolean draw = true;//draw is always set to true.
+		for(JButton but : buttons) if(but.getText().equals("")) draw = false;//if the text in any button is empty, draw is set to false.
+		if(draw && !win) textField.setText("Tie");//if draw is true and win is false, then the game has tied.
 	}
 }

@@ -2,6 +2,9 @@ package Snake;
 import javax.swing.JFrame;
 
 public class SnakeFrame extends JFrame{
+	/**
+	 * creates a new JFrame and adds the GamePanel class to it.
+	 */
 	public SnakeFrame(){
 		this.add(new GamePanel());
 		this.setTitle("Snake");
