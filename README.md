@@ -7,5 +7,4 @@ All other folders are work in progress projects.\
 If you want to try them out, download the .zip file and navigate to the required .jar file.\
 
 # Todo 
-all .jar files need to be placed in one folder\
-some .jar files have to be added.
+More projects are to be done. I have two more years of highschool

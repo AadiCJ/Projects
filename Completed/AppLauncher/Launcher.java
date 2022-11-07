@@ -57,7 +57,7 @@ public class Launcher extends JFrame{
                 //the error is fixed if you take the AppLauncher folder out of the Projects folder.
                 break;
             case "Paint":
-                new Paint.PaintFrame();
+                new Paint.PaintFrame();//open Paint.
                 break;
         }
     }
