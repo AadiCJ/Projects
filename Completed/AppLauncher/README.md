@@ -15,8 +15,5 @@ Click the button to open the desire application.\
 Exit the application whenever required.\
 App Launcher will remain open in the background.
 
-## TODO
-The calculator is not yet functional.
-
 ## Credits
 Aadi Jha - Author
