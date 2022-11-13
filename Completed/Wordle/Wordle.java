@@ -9,8 +9,6 @@ import javax.swing.KeyStroke;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.awt.Font;
 import java.awt.Dimension;
 import java.awt.Color;
@@ -46,21 +44,12 @@ public class Wordle extends JPanel{
         initFrame();
         
         setBackground(Color.black);
-        File wordsF = new File("Wordle\\words.txt");
-        File validInF = new File("Wordle\\valid-inputs.txt");
-        Scanner wordsReader = new Scanner(System.in);
-        Scanner validInReader = new Scanner(System.in);
+        Scanner wordsReader = new Scanner(getClass().getResourceAsStream("words.txt"));
+        Scanner validInReader = new Scanner(getClass().getResourceAsStream("valid-inputs.txt"));
+        while(wordsReader.hasNext()) words.add(wordsReader.next());
+        while(validInReader.hasNext()) validIn.add(validInReader.next());
+
         Random r = new Random();
-        try {
-            wordsReader = new Scanner(wordsF);
-            validInReader = new Scanner(validInF);
-            while(wordsReader.hasNext()) words.add(wordsReader.next());
-            while(validInReader.hasNext()) validIn.add(validInReader.next());
-            wordsReader.close();
-            validInReader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
         errLabel.setFont(getFont());
         setFont(new Font("monospace", Font.PLAIN, 50));
         
