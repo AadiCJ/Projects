@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "Completed/TicTacToe",
+        "Completed/Snake",
+        "Completed/Paint",
+        "Completed/AppLauncher",
+        "Completed",
+        "LoginTest"
+    ]
+}
